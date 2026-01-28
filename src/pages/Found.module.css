@@ -1,0 +1,415 @@
+.container {
+    background: linear-gradient(180deg, #000000 0%, #0a0015 50%, #000000 100%);
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+}
+
+.headerContainer {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    background: linear-gradient(135deg, #e947f5, #c77dff, #9d4edd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(233, 71, 245, 0.6));
+    }
+    50% {
+        filter: drop-shadow(0 0 35px rgba(233, 71, 245, 0.8));
+    }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+.back {
+    position: fixed;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: black;
+    border-radius: 16px;
+    top: 0;
+    left: 0;
+    margin-top: 24px;
+    margin-left: 24px;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+}
+
+.back:hover {
+    transform: scale(1.15) rotate(-8deg);
+    box-shadow: 0 8px 32px rgba(233, 71, 245, 0.5);
+    background: linear-gradient(135deg, #e947f5, #9d4edd);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.back:active {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+.filterContainer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+    margin-top: 35px;
+    padding: 28px 35px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 2px solid rgba(233, 71, 245, 0.3);
+    box-shadow: 0 8px 32px rgba(233, 71, 245, 0.15);
+    max-width: 700px;
+    width: 90%;
+    transition: all 0.3s ease;
+}
+
+.filterContainer:hover {
+    border-color: rgba(233, 71, 245, 0.5);
+    box-shadow: 0 12px 40px rgba(233, 71, 245, 0.25);
+}
+
+.filterLabel {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e947f5, #c77dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+}
+
+.filterLabel svg {
+    color: #e947f5;
+    filter: drop-shadow(0 0 8px rgba(233, 71, 245, 0.6));
+}
+
+.filterButtons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.filterBtn {
+    padding: 12px 26px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.filterBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(233, 71, 245, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.filterBtn:hover::before {
+    left: 100%;
+}
+
+.filterBtn:hover {
+    background: rgba(233, 71, 245, 0.2);
+    border-color: #e947f5;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(233, 71, 245, 0.3);
+}
+
+.filterBtn.active {
+    background: linear-gradient(135deg, #e947f5, #9d4edd);
+    border-color: #e947f5;
+    box-shadow: 0 0 30px rgba(233, 71, 245, 0.7), 0 0 60px rgba(233, 71, 245, 0.4);
+    transform: scale(1.1);
+    color: white;
+    font-weight: 700;
+}
+
+.resultsInfo {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.itemCount {
+    padding: 10px 24px;
+    background: rgba(233, 71, 245, 0.15);
+    border: 1px solid rgba(233, 71, 245, 0.3);
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+    max-width: 1500px;
+    width: 100%;
+}
+
+.list > div {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeOut {
+    animation: fadeOutAnim 0.3s ease forwards;
+}
+
+.fadeIn {
+    animation: fadeInAnim 0.6s ease forwards;
+}
+
+@keyframes fadeOutAnim {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes fadeInAnim {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.noResults {
+    text-align: center;
+    padding: 80px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    animation: fadeInAnim 0.6s ease;
+}
+
+.noResults svg {
+    color: rgba(233, 71, 245, 0.6);
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.noResults p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 600;
+}
+
+.noResults span {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .list {
+        gap: 28px;
+    }
+
+    .filterContainer {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        font-size: 2.5rem;
+        margin-top: 80px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .filterContainer {
+        margin-bottom: 20px;
+        margin-top: 25px;
+        padding: 24px 25px;
+        gap: 15px;
+    }
+
+    .filterLabel {
+        font-size: 1.15rem;
+    }
+
+    .filterButtons {
+        gap: 12px;
+    }
+
+    .filterBtn {
+        padding: 10px 20px;
+        font-size: 0.98rem;
+    }
+
+    .list {
+        gap: 22px;
+        padding: 0 15px;
+    }
+
+    .back {
+        margin-top: 20px;
+        margin-left: 20px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerContainer {
+        margin-top: 40px;
+    }
+
+    .header {
+        font-size: 2rem;
+        margin-top: 60px;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .back {
+        padding: 10px;
+        margin-top: 16px;
+        margin-left: 16px;
+    }
+
+    .filterContainer {
+        padding: 20px 18px;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .filterLabel {
+        font-size: 1.05rem;
+    }
+
+    .filterBtn {
+        padding: 9px 18px;
+        font-size: 0.92rem;
+    }
+
+    .itemCount {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+
+    .list {
+        gap: 18px;
+    }
+
+    .noResults {
+        padding: 60px 20px;
+    }
+
+    .noResults svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .noResults p {
+        font-size: 1.2rem;
+    }
+
+    .noResults span {
+        font-size: 0.9rem;
+    }
+}

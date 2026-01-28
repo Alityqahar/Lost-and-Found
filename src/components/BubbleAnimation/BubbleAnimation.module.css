@@ -1,0 +1,135 @@
+.bubbleContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(233, 71, 245, 0.6), 
+        rgba(157, 78, 221, 0.4), 
+        rgba(233, 71, 245, 0.2));
+    filter: blur(50px);
+    animation: float infinite ease-in-out;
+    will-change: transform;
+}
+
+.bubble:nth-child(odd) {
+    background: radial-gradient(circle at 40% 40%, 
+        rgba(197, 125, 255, 0.5), 
+        rgba(157, 78, 221, 0.3), 
+        rgba(233, 71, 245, 0.15));
+}
+
+.bubble:nth-child(3n) {
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(157, 78, 221, 0.6), 
+        rgba(233, 71, 245, 0.3), 
+        rgba(197, 125, 255, 0.2));
+    filter: blur(60px);
+}
+
+.bubble:nth-child(4n) {
+    background: radial-gradient(circle at 35% 35%, 
+        rgba(233, 71, 245, 0.4), 
+        rgba(197, 125, 255, 0.35), 
+        rgba(157, 78, 221, 0.2));
+    filter: blur(70px);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(30px) scale(1.1);
+    }
+    90% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-20px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Animasi tambahan untuk variasi gerakan */
+.bubble:nth-child(2n) {
+    animation-name: floatReverse;
+}
+
+@keyframes floatReverse {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(-40px) rotate(180deg) scale(1.15);
+    }
+    90% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(30px) rotate(360deg) scale(0.85);
+        opacity: 0;
+    }
+}
+
+.bubble:nth-child(3n) {
+    animation-name: floatWave;
+}
+
+@keyframes floatWave {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    25% {
+        transform: translateY(-25vh) translateX(50px) scale(1.05);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(-30px) scale(1.12);
+    }
+    75% {
+        transform: translateY(-75vh) translateX(40px) scale(1.08);
+    }
+    90% {
+        opacity: var(--bubble-opacity, 0.3);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-10px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .bubble {
+        filter: blur(40px);
+    }
+    
+    .bubble:nth-child(3n) {
+        filter: blur(45px);
+    }
+    
+    .bubble:nth-child(4n) {
+        filter: blur(50px);
+    }
+}
