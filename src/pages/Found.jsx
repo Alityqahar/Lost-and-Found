@@ -11,47 +11,53 @@ const ITEMS_DATA = [
         location: 'Dapur Asrama',
         category: 'Elektronik',
         gambar: '/charger.jpg',
-        desc: 'Charger laptop merek Asus dengan kabel sepanjang 1.5 meter, hilang di area dapur asrama. Sangat dibutuhkan untuk keperluan kuliah.'
+        desc: 'Charger laptop merek Asus dengan kabel sepanjang 1.5 meter, hilang di area dapur asrama. Sangat dibutuhkan untuk keperluan kuliah.',
+        waktu: '2024-01-15 14:30'
     },
     {
         id: 2,
         title: 'Pulpen',
         location: 'Perpustakaan',
         category: 'ATK',
-        gambar: '/charger.jpg',
-        desc: 'Pulpen hitam dengan ujung runcing, hilang di area perpustakaan lantai 3 dekat rak buku referensi.'
+        gambar: '/pulpen.jpg',
+        desc: 'Pulpen hitam dengan ujung runcing, hilang di area perpustakaan lantai 3 dekat rak buku referensi.',
+        waktu: '2024-01-14 10:15'
     },
     {
         id: 3,
         title: 'Jaket Hoodie',
         location: 'Kantin Utama',
         category: 'Pakaian',
-        gambar: '/charger.jpg',
-        desc: 'Jaket hoodie warna biru navy dengan logo kampus di bagian dada, sangat berharga karena hadiah wisuda.'
+        gambar: '/jaket.jpg',
+        desc: 'Jaket hoodie warna biru navy dengan logo kampus di bagian dada, sangat berharga karena hadiah wisuda.',
+        waktu: '2024-01-13 16:45'
     },
     {
         id: 4,
         title: 'USB Flash Drive',
         location: 'Ruang Komputer',
         category: 'Elektronik',
-        gambar: '/charger.jpg',
-        desc: 'USB flash drive 64GB warna merah dengan gantungan kunci, berisi file tugas akhir yang sangat penting.'
+        gambar: '/usb.jpg',
+        desc: 'USB flash drive 64GB warna merah dengan gantungan kunci, berisi file tugas akhir yang sangat penting.',
+        waktu: '2024-01-12 09:20'
     },
     {
         id: 5,
         title: 'Buku Catatan',
         location: 'Kelas A101',
         category: 'ATK',
-        gambar: '/charger.jpg',
-        desc: 'Buku catatan hardcover berwarna coklat dengan tanda tangan pemilik di halaman pertama. Berisi catatan kuliah semester ini.'
+        gambar: '/note.jpg',
+        desc: 'Buku catatan hardcover berwarna coklat dengan tanda tangan pemilik di halaman pertama. Berisi catatan kuliah semester ini.',
+        waktu: '2024-01-11 13:00'
     },
     {
         id: 6,
         title: 'Topi Baseball',
         location: 'Lapangan Olahraga',
         category: 'Pakaian',
-        gambar: '/charger.jpg',
-        desc: 'Topi baseball merah dengan logo universitas dan bordir nama di bagian belakang.'
+        gambar: '/baseball.jpg',
+        desc: 'Topi baseball merah dengan logo universitas dan bordir nama di bagian belakang.',
+        waktu: '2024-01-10 15:30'
     }
 ]
 
@@ -125,6 +131,7 @@ export default function Found() {
                                 location={item.location} 
                                 gambar={item.gambar}
                                 category={item.category}
+                                waktu={item.waktu}
                             >
                                 {item.desc}
                             </Card>
